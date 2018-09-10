@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+//object destructing // make new variables from object
 var {ObjectID} = require('mongodb');
 
 
@@ -12,6 +13,8 @@ var app = express();
 const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(logger);
+
+//create todos
 app.post('/todos', (req,res)=>{
   var todo = new Todo ({
     text: req.body.text
@@ -57,6 +60,28 @@ app.post('/todos', (req,res)=>{
     }).catch((e) =>{
       res.status(400).send();
     });
+
+  });
+
+  //delete a todo
+  app.delete('/todos/:id',(req,res) =>{
+
+
+  var id = req.params.id;
+    //validate id using isvalid
+ if(!ObjectID.isValid(id)){
+  //404 - send back empty content
+  return res.status(404).send('Invalid ID');
+  }
+
+  Todo.findByIdAndRemove(id).then((todo)=>{
+    if(!todo){
+      return res.status(404).send();
+    }
+    res.send({todo});
+  }).catch((e) =>{
+    res.status(400).send();
+  });
 
   });
 
