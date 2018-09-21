@@ -107,6 +107,21 @@ UserSchema.statics.findByCredentials = function (email,password){
  });
 
 };
+
+
+// function to remove access token
+UserSchema.methods.removeToken = function (token) {
+  var user = this;  
+  return user.update({
+    $pull:{
+      tokens:{token}
+    }
+  });
+};
+
+
+
+
 //Midlleware to perform some actions before saving user data 
 UserSchema.pre('save', function(next){
 var user = this;
