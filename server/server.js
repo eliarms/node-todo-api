@@ -10,6 +10,7 @@ var {Todo} = require ('./models/todo');
 var {User} = require ('./models/user');
 var {logger} = require ('./middleware/mongo-logger');
 var {authenticate} = require('./middleware/authenticate');
+require('./config/config');
 
 var app = express();
 const port = process.env.PORT || 3000;
