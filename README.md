@@ -1,7 +1,5 @@
 # Nodejs TODO List API
- This is a TODO REST API  developed with NodeJS , ExpressJs , MongoDB, Mongoose.
-
-This application is an absolute multi user’s online Todo management REST API built with NodeJS , ExpressJs  & Mongoose. It is a complete CRUD application that helps you manage your Todo List .
+ This application is an absolute multi user’s online Todo management REST API built with NodeJS , ExpressJs  & Mongoose. It is a complete CRUD application that helps you manage your Todo List .
 
 ## Installation
 
@@ -11,26 +9,44 @@ This application is an absolute multi user’s online Todo management REST API b
 ```This will allow you to have  differents environment settings.```
 
 ## Example of a config.json 
+
 {
-    "test":{
-        "PORT": 3000,
-        "MONGODB_URI": "mongodb://localhost:27017/TodoAppTest",
-        "JWT_SECRET":"abceced232435kbskjfb123123w9mrj3sdkjfkds"
-    },
-    "development":{
-        "PORT": 3000,
-        "MONGODB_URI": "mongodb://localhost:27017/TodoApp",
-        "JWT_SECRET":"abceced232435kbskjfbsdkjf4290304kds"
-    }
+ 
+ "test": 
+   {
+    
+      "PORT": 3000,
+      
+      "MONGODB_URI": "mongodb://localhost:27017/TodoAppTest",
+      
+      "JWT_SECRET": "abceced232435kbskjfb123123w9mrj3sdkjfkds
+   },
+   
+  "development": 
+   {
+   
+    "PORT": 3000,
+    
+    "MONGODB_URI": "mongodb://localhost:27017/TodoApp",
+   
+    "JWT_SECRET": "abceced232435kbskjfbsdkjf4290304kds"
+ 
+ }
 }
+
 2. run ```npm install``` to install all the necessary **node_modules** for running the application.
+
 2. Run ```npm start``` to start the application 
+
 3. At this point the application is up and running, you can test the Endpoints using any restful clients like```Postman or Insomnia``` .
 
 ## How does it works ?
 If you are running the application for the first time , you need to create a new user by making a POST request to the  ```/user```  endpoint together with the email and password in a json format. The application will generate a unique X-Auth token that needs to be included in the headers before accessing any TODO'S enpoints.
-Example:
+
+**Example**
+
 ```POST --> http://localhost:3000/users/```
+
 **Body**
 {
 	"email":"youremail@gmail.com",
