@@ -57,10 +57,10 @@ If you are running the application for the first time , you need to create a new
 
 | Endpoints  | Request Type | Description
 | ---------- | ---- | ---------- |
-| `/user`  | **POST**  | Creates a new user with the specified email and password and generates a unique ```X-Auth``` header
-| `/user/login`  | **POST**  | Logs in a user with the specified email and password credentials and generates a unique ```X-Auth``` header
-| `/user/me/token` | **DELETE** | Logs out the current user with the specified ```X-Auth``` header.
-| `/user/me` | **GET** | Retrieves info about the current user logged in. You need to provide the unique  ```X-Auth``` token in the header, else the application will return a ```401 Unauthorized``` HTTP ERROR CODE
+| `/users`  | **POST**  | Create a new user with the specified email and password and generates a unique ```X-Auth``` header
+| `/users/login`  | **POST**  | Logs in a user with the specified email and password credentials and generates a unique ```X-Auth``` header
+| `/users/me/token` | **DELETE** | Logs out the current user with the specified ```X-Auth``` header.
+| `/users/me` | **GET** | Retrieves info about the current user logged in. You need to provide the unique  ```X-Auth``` token in the header, else the application will return a ```401 Unauthorized``` HTTP ERROR CODE
 | `/todos` | **GET** | Retrieves all of the user's current todos
 | `/todos/id` | **GET** | Retrieves a single todo with the specified **id**
 | `/todos` | **POST** | Creates a new todo with the specified **text** and **completed** (true or false) status. 
