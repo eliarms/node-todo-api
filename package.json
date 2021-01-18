@@ -1,7 +1,7 @@
 {
   "name": "todo-api",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "A TODO REST API developed with NodeJS , ExpressJs , MongoDB, Mongoose & JWT",
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
