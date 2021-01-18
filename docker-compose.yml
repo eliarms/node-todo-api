@@ -1,11 +1,50 @@
 version: "3"
 
 services:
-  app:
-    build: .
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: eliarms/node-todo-api
+    container_name: node-todo-api
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - MONGO_USERNAME=$MONGO_USERNAME
+      - MONGO_PASSWORD=$MONGO_PASSWORD
+      - MONGO_HOSTNAME=db
+      - MONGO_PORT=$MONGO_PORT
+      - MONGO_DB=$MONGO_DB
     ports:
       - 3000:3000
-  mongo:
+    depends_on:
+      - "db"  
+    volumes:
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules  
+    networks:
+      - api-network 
+    
+  db:
     image: mongo
+    container_name: node-todo-mongodb
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
+    volumes:
+      - dbdata:/data/db
+    
     ports:
       - "27017:27017"
+    networks:
+      - api-network
+
+
+networks:
+  api-network:
+    driver: bridge
+volumes:
+  dbdata:
+  node_modules:    
