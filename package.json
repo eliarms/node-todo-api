@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "node --inspect server/server.js"
   },
   "engine": {
     "node": "10.1.0"
@@ -23,9 +24,9 @@
     "validator": "^10.7.1"
   },
   "devDependencies": {
-    "expect": "^23.5.0",
-    "mocha": "^5.2.0",
-    "nodemon": "^1.18.3",
+    "expect": "^26.6.2",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.7",
     "supertest": "^3.1.0"
   }
 }
